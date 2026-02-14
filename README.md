@@ -1,5 +1,6 @@
 # EX-NO-7-Implement-DES-Encryption
-
+## Developed by : AKASH G
+## Register No. : 212224100004
 ## Aim:
 
 To use the Data Encryption Standard (DES) algorithm for a practical application, such as securing sensitive data transmission in financial transactions.
@@ -13,11 +14,40 @@ To use the Data Encryption Standard (DES) algorithm for a practical application,
 
 ## Program:
 
+```
+def xor_crypt(input_text, key):
+    output = []
+    key_length = len(key)
+
+    for i in range(len(input_text)):
+        xor_char = chr(ord(input_text[i]) ^ ord(key[i % key_length]))
+        output.append(xor_char)
+
+    return ''.join(output)
+
+
+# Main program
+msg = input("Enter message: ")
+key = input("Enter key: ")
+
+# Encrypt
+enc = xor_crypt(msg, key)
+
+print("Encrypted:", end=" ")
+for ch in enc:
+    print(f"{ord(ch):02X}", end=" ")
+print()
+
+# Decrypt
+dec = xor_crypt(enc, key)
+print("Decrypted:", dec)
+```
 
 
 
 ## Output:
 
+<img width="1675" height="1022" alt="Screenshot 2026-02-14 083508" src="https://github.com/user-attachments/assets/07232670-e8b1-4b23-b28f-79832b112bf9" />
 
 ## Result:
   The program is executed successfully
